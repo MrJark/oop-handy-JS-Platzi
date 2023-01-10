@@ -1,2 +1,2 @@
-# OOP-handy-JS-Platzi
+# oop-handy-JS-Platzi
 OOP in Platzi for JS
