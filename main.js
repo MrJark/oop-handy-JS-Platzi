@@ -4,7 +4,7 @@ const chema = {
    age: 25,
    cursosAprobados: [
     "Curso de Growth para Startups",
-    "Curso de Email Marketing";
+    "Curso de Email Marketing",
    ],
    aprobarCursos (nuevoCurso) { //es un método que se crea a través de una función para que apruebe cursos 
     this.cursosAprobados.push("De cero a tus primeros Usuarios"); //this. hace referencia al propio chema
