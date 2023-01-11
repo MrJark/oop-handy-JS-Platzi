@@ -1,3 +1,5 @@
+// const { name } = require("pug/lib");
+
 //esto es un objeto literal y aunque no tenga nada, JS a los objetos les añade un __proto__
 const chema = {
    name: "Chema",
@@ -35,3 +37,43 @@ const juanita = new Student ( //esto es un prototype porque esto se crean con la
         "Curso de Responsve Design",
     ],
 );//tiene 3 parámetros porque así lo hemos decidido cen la función Student, le damos estos 3 parámetros
+
+//Prototypes con la sintaxis de clases
+
+class Student2 {
+    constructor ({ //tener lo parámetros en forma de paréntesis es un problema porque nos obliga a acordarnos del orden en que mandar los datos del estudiante pero si creamos un parámetro en forma de objeto, este problema desaparece
+        name, 
+        age, 
+        cursosAprobados = [],//es un array vacio porque si son nuevos, no tienen cursos aprobados y por tanto está a cero
+        email,
+    }) { //en las clases, si queremos crear prototypes debemos usar la palabra reservada ' constructor ' la cual tiene la misma sintaxis que si fueran los paréntesis dentro de una function
+        this.name = name;
+        this.age = age; 
+        this.cursosAprobados = cursosAprobados;
+        this.email = email;
+    }
+
+    aprobarCursos(nuevoCurso) {
+        this.cursosAprobados.push(nuevoCurso); //this hace referencia a Student2 y le estamos diciendo dentro de este Student2, en el método aprobar cursos, que añada el nuevo curso
+    }
+}
+
+// const antonia = new Student2 (// esta sería la forma de crear un nuevo estudiante sin tener los argumentos de la clase en forma de objeto, nos tendríamos que acordar del orden de los elementos
+//     "Antnia",
+//     34,
+//     [
+//         "Curso de Programación Básica",
+//         "Responsive Design",
+//         "MObile First",
+//     ],
+// )
+const antonia = new Student2 ( {//forma de tener los nuevo sestudiantes, aunque es un poco mas larga, da igual el orden en que tengamos los atributos o si alguno de ellos no lo completamos, lo dejará como un string vacio
+    age: 34,    
+    name: "Antnia",
+    email: "antonia@antnia.com",
+    cursosAprobados: [
+        "Curso de Programación Básica",
+        "Responsive Design",
+        "Mobile First",
+    ],
+});
