@@ -1,5 +1,7 @@
 // const { name } = require("pug/lib");
 
+const { name } = require("pug/lib");
+
 //esto es un objeto literal y aunque no tenga nada, JS a los objetos les añade un __proto__
 const chema = {
    name: "Chema",
@@ -77,3 +79,58 @@ const antonia = new Student2 ( {//forma de tener los nuevo sestudiantes, aunque 
         "Mobile First",
     ],
 });
+
+
+//Competición entre objetos literales, prototypes y clases. Ventajas de desventajas
+
+//Con objetos Literales
+
+// const juan = {
+//     name: "Juan DC",
+//     username: "juandc",
+//     points: 100,
+//     socialMedia: {
+//         twitter: "juanitodc",
+//         instagram: "juanitodc",
+//         facebook: undefined,
+//     },
+//     approvedCurses: [
+//         "Curso definitivo de CSS Y HTML",
+//         "Curso práctico de CSS y HTML",
+//     ],
+//     learningPaths: [
+//         name: " Escuela de desarrollo web"
+//         courses: [
+//             "Curso definitivo de CSS Y HTML",
+//             "Curso práctico de CSS y HTML",
+//         ],
+//     ],
+// }
+//el trabajar con objetos literales es muy visual perono tiene una forma escalable ya que si tenemos 1000 estudiantes distintos, tenemos nuevas rutas y modificamos las antiguas, tnemeos que ir modificándolas una a una
+
+//Con clases
+
+class Student3 {
+    constructor ({
+        name, 
+        email,
+        userName,
+        twitter = undefined,// las redes son undefined porque pueden no tener y solo serán definidas si el estudiante mismo la pone
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses = [],
+        learningPath = [],
+    }) {
+        this.name  = name,
+        this.email = email,
+        this.userName = userName,
+        this.socialMedia = {
+            // twitter: twitter, = twitter
+            twitter,
+            facebook,
+            instagram,
+        },
+        this.approvedCourses = approvedCourses,
+        this.learningPath  = learningPath,
+    }
+} 
