@@ -120,17 +120,24 @@ class Student3 {
         facebook = undefined,
         approvedCourses = [],
         learningPath = [],
-    }) {
-        this.name  = name,
-        this.email = email,
-        this.userName = userName,
+    }) { //cuando acabamos una linea que empieza por this. , siempre terminamos con ' ; ' nunca con ' , ' aunque hayan más lineas después
+        this.name  = name;
+        this.email = email;
+        this.userName = userName;
         this.socialMedia = {
             // twitter: twitter, = twitter
             twitter,
             facebook,
             instagram,
-        },
-        this.approvedCourses = approvedCourses,
-        this.learningPath  = learningPath,
+        };
+        this.approvedCourses = approvedCourses;
+        this.learningPath  = learningPath;
     }
 } 
+
+const marianela = new Student3 ({
+    name: "Marianela",
+    userName: "Mary",
+    email: "marianela12@gmail.com",
+    instagram: "marianela_5",
+})
