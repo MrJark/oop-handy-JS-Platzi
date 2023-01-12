@@ -109,6 +109,51 @@ const antonia = new Student2 ( {//forma de tener los nuevo sestudiantes, aunque 
 //el trabajar con objetos literales es muy visual perono tiene una forma escalable ya que si tenemos 1000 estudiantes distintos, tenemos nuevas rutas y modificamos las antiguas, tnemeos que ir modificándolas una a una
 
 //Con clases
+//reto -> crear una clase con las LearningPath y una instancia para cada una de las escuelas que vamos a necesitar. Tmabién crear una clase con los cursos y sus parámetros
+
+class Courses {
+    constructor ({
+        name,
+        teacher,
+        level,
+        hoursTheory,
+        hoursPractice,
+    }) {
+        this.name = name;
+        this.teacher = teacher;
+        this.level = level;
+        this.hoursTheory = hoursTheory;
+        this.hoursPractice = hoursPractice;
+    }
+}
+
+const cursoBásicoDePython = new Courses ({ //ejemplo de una instancia
+    name: "Curso Básico de Python",
+    teacher: "Diego De Granda",
+    level: "Basic",
+    hoursTheory: 2,
+    hoursPractice: 8, 
+})
+
+class LearningPath {
+    constructor({
+        name,
+        courses = [],
+    }){
+        this.name = name;
+        this.courses = courses;
+    }
+}
+
+const escuelaJS = new LearningPath ({ //ejemplo de una instancia
+    name: "Escuela de Desarrollo Web",
+    courses: [
+        "Curso Básico Teórico de JS",
+        "Curso Básico Práctico de JS",
+        "Curso Medio Práctico de JS",
+        "Curso Avanzado Práctico de JS",
+    ]
+});
 
 class Student3 {
     constructor ({
@@ -140,4 +185,7 @@ const marianela = new Student3 ({
     userName: "Mary",
     email: "marianela12@gmail.com",
     instagram: "marianela_5",
+    learningPath: [
+
+    ]
 })
