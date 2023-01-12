@@ -186,6 +186,9 @@ const marianela = new Student3 ({
     email: "marianela12@gmail.com",
     instagram: "marianela_5",
     learningPath: [
-
-    ]
+        escuelaJS,
+    ],
+    courses: {
+        cursoBásicoDePython,
+    }
 })
