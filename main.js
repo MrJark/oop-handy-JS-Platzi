@@ -1,4 +1,23 @@
-// const { name } = require("pug/lib");
+
+class Comments {
+    constructor({
+        content,
+        studentName,
+        studentRole = "students", //lo único que puede no ser obligatorio ya que, por defecto, serán los estdiantes pero si algún profesor pone un comentario, queremos que sea "distinto"
+    }) {
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0; //podemos crear atributos sin tener que lamarlos en el constructor
+    }
+
+    publicar() {
+        console.log(this.studentName + " (" + this.studentRole + ")")
+        console.log(this.likes + " likes");
+        console.log(this.content);
+    }
+}
+
 
 const { name } = require("pug/lib");
 
@@ -183,6 +202,14 @@ class Student3 {
         };
         this.approvedCourses = approvedCourses;
         this.learningPath  = learningPath;
+    }
+
+    postComment(commentContent) {
+        const comment = new Comments ( {
+            content: commentContent,
+            studentName: this.name,
+        });
+        comment.publicar();
     }
 } 
 
