@@ -250,6 +250,23 @@ class ExpertStudent3 extends Student3 {
         this.approvedCourses.push(newCourse);
     }
 }
+class TeachersStudents extends Student3 {
+    constructor(props){
+        super(props);
+    }
+    approveCourse(newCourse) {
+        this.approvedCourses.push(newCourse);
+    }
+    postComment(commentContent) {
+        const comment = new Comments ( {
+            content: commentContent,
+            studentName: this.name,
+            studentRole: "Teacher",
+        });
+        comment.publicar();
+    }
+}
+
 
 const marianela = new ExpertStudent3 ({
     name: "Marianela",
