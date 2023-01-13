@@ -118,12 +118,17 @@ class Courses {
         level,
         hoursTheory,
         hoursPractice,
+        classes = [],
+        isFree = false, //por defecto, los cursos no son gratis a no ser que lo pongamos nosotros
+        lang = "spanish",
     }) {
         this.name = name;
         this.teacher = teacher;
         this.level = level;
         this.hoursTheory = hoursTheory;
         this.hoursPractice = hoursPractice;
+        this.classes = classes;
+        this.lang = lang;
     }
 }
 
@@ -133,6 +138,7 @@ const cursoBásicoDePython = new Courses ({ //ejemplo de una instancia
     level: "Basic",
     hoursTheory: 2,
     hoursPractice: 8, 
+    lang: "english", //imaginemos
 })
 
 class LearningPath {
@@ -180,7 +186,45 @@ class Student3 {
     }
 } 
 
-const marianela = new Student3 ({
+//creación de los distintos tipos de estudiantes de platzi: free, basic, expert
+//el extends lo colocamos para saber de que clase o método queremos heredar los atributos y métodos y en este caso es de Student3
+
+class FreeStudent3 extends Student3 {
+    constructor(props){
+        super(props);//super() nos permite llamar al constructor de nuestra clase madre
+    }
+    approveCourse(newCourse) {
+        if (newCourse.isFree) {
+            this.approvedCourses.push(newCourse);//podemos acceder a this.approvedCourses gracias a que estamos extendiendo la clase Student3 ya ya que en esta clase no la tenemos definida pero con el método super podemos acceder 
+        } else {
+            console.warn("Lo siento, " + this.name + " no es de acceso free.")
+        }
+    }
+}
+
+class BasicStudent3 extends Student3 {
+    constructor(props){
+        super(props);
+    }
+    approveCourse(newCourse) {
+        if (newCourse.lang !== "english") {
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn("Lo siento, " + this.name + " no es de acceso a los cursos de inglés.")
+        }
+    }
+}
+
+class ExpertStudent3 extends Student3 {
+    constructor(props){
+        super(props);
+    }
+    approveCourse(newCourse) {
+        this.approvedCourses.push(newCourse);
+    }
+}
+
+const marianela = new ExpertStudent3 ({
     name: "Marianela",
     userName: "Mary",
     email: "marianela12@gmail.com",
